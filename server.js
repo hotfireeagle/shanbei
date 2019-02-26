@@ -113,6 +113,10 @@ if (process.argv[2] === 'online') {
 // 其他访问 作为静态资源反馈
 app.use(express.static(__dirname));
 
+app.all('/EnglishLearningPlatform/*', function(req, res) {
+    apiProxy.web(req, res, {target: 'http://localhost:8080/'});
+});
+
 // http服务
 http.createServer(app).listen(80, function () {
     console.log('gkInfomation http server listening on port 80');

@@ -5,16 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"">
     <%- include('/app/common/layout/meta.html') %>
     <title>注册学英语</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/semantic.css" />
 </head>
 <body>
     <%- include('/app/common/layout/header.html') %>
     <div class="wrapper">
         <div class="registerWrapper">
-            <span class="title">欢迎注册</span>
+            <span class="ui large header title">欢迎注册</span>
+
+            <div class="inputWrapper">
+                <div class="ui left action input mb20">
+                    <button class="ui teal labeled icon button wi">
+                        <i class="phone icon"></i>
+                        ID
+                    </button>
+                    <input id="userId" type="text" placeholder="请输入用户ID">
+                </div>
+
+                <div class="ui left action input mb20">
+                    <button class="ui teal labeled icon button wi">
+                        <i class="lock icon"></i>
+                        密&nbsp;&nbsp;码
+                    </button>
+                    <input id="userPwd" type="password" placeholder="请输入密码">
+                </div>
+
+                <div class="ui left action input mb20">
+                    <button class="ui teal labeled icon button wi">
+                        <i class="user icon"></i>
+                        昵&nbsp;&nbsp;称
+                    </button>
+                    <input id="userN" type="text" placeholder="请输入昵称">
+                </div>
+                <div>
+                    <button id="submit" class="huge ui primary button registerButton">
+                        注册
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="display: none;" class="ui success message">
+            <i class="close icon"></i>
+            <div class="header">
+                您已经成功注册账号！
+            </div>
+            <p>现在开始使用这个账号进行登录吧~</p>
         </div>
     </div>
 
     <%- include('/app/common/layout/footer.html') %>
     <script type="text/javascript" src="/assets/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/libs/semantic.js"></script>
 </body>
 </html>
