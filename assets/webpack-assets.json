@@ -1,0 +1,36 @@
+{
+  "index": {
+    "js": "/assets/static/index-3586d504.js",
+    "css": "/assets/static/index-f9f544e2.css"
+  },
+  "": {
+    "html": [
+      "/./html/enrollment.html",
+      "/./html/enrollmentList.html",
+      "/./html/examinfo.html",
+      "/./html/examinfoList.html",
+      "/./html/index.html",
+      "/./html/moreProvince.html"
+    ]
+  },
+  "examinfoList": {
+    "js": "/assets/static/examinfoList-3166ee19.js",
+    "css": "/assets/static/examinfoList-6555ec48.css"
+  },
+  "enrollmentList": {
+    "js": "/assets/static/enrollmentList-0e78f264.js",
+    "css": "/assets/static/enrollmentList-2d3cb5ee.css"
+  },
+  "examinfo": {
+    "js": "/assets/static/examinfo-8457a47e.js",
+    "css": "/assets/static/examinfo-a6364d56.css"
+  },
+  "enrollment": {
+    "js": "/assets/static/enrollment-76fbb9d7.js",
+    "css": "/assets/static/enrollment-a6364d56.css"
+  },
+  "moreProvince": {
+    "js": "/assets/static/moreProvince-fb92deec.js",
+    "css": "/assets/static/moreProvince-ce117daf.css"
+  }
+}

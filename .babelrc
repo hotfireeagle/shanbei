@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "es2015"
+    ],
+    "plugins": [
+        "component",
+        "lodash",
+        "transform-es2015-modules-commonjs",
+        "transform-runtime"
+    ],
+    "ignore": [
+        "node_modules"
+    ]
+}
