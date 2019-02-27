@@ -1,4 +1,5 @@
 import './index.less';
+import 'app/common/js/common.js';
 
 let baseOrigin = '/EnglishLearningPlatform';
 
@@ -29,7 +30,7 @@ $(document).ready(function() {
                     $('.message').show();
                     setTimeout(function() {
                         $('.message').hide();                  // 显示2.5s后进行隐藏
-                        window.location.href = '/';
+                        window.location.href = '/login.html';
                     }, 1500);
                 }
                 $(that).removeClass('loading disabled');

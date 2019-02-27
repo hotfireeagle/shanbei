@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"">
+    <%- include('/app/common/layout/meta.html') %>
+    <title>登录平台</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/semantic.css" />
+</head>
+<body>
+    <%- include('/app/common/layout/header.html') %>
+    
+    <div class="wrapper">
+        <div class="registerWrapper">
+            <span class="ui large header title">登录</span>
+            <div class="inputWrapper">
+                <div class="ui left action input mb20">
+                    <button class="ui teal labeled icon button wi">
+                        <i class="phone icon"></i>
+                        ID
+                    </button>
+                    <input id="userId" type="text" placeholder="请输入用户ID">
+                </div>
+    
+                <div class="ui left action input mb20">
+                    <button class="ui teal labeled icon button wi">
+                        <i class="lock icon"></i>
+                        密&nbsp;&nbsp;码
+                    </button>
+                    <input id="userPwd" type="password" placeholder="请输入密码">
+                </div>
+
+                <div>
+                    <button id="login" class="huge ui primary button registerButton">
+                        登录
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui small modal">
+                <div class="large header">提示</div>
+                <div class="content">
+                    抱歉，登录失败，请确认密码是否填写正确
+                </div>
+                <div class="actions">
+                  <div id="closeButton" class="ui button">确定</div>
+                </div>
+              </div>
+    </div>
+
+    <%- include('/app/common/layout/footer.html') %>
+    <script type="text/javascript" src="/assets/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/libs/semantic.js"></script>
+</body>
+</html>
