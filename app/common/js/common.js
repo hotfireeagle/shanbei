@@ -38,10 +38,10 @@ function getCookie(keyName) {
 
 /** 控制在顶部菜单是显示名字还是注册登录 */
 function displayNameOrLogin() {
-    let userName = getCookie('name');
+    let userName = getCookie('userId');
     if (userName) {
         $('.rl').hide();
-        $('#userName').text(userName);
+        $('#userName').text(`您好，${userName}`);
         $('#userName').show();
     } else {
         $('.rl').show();
