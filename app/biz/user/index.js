@@ -3,7 +3,7 @@ import { getCookie } from 'app/common/js/common.js';
 
 // TODO: 1.一进入该页面便获取用户信息 ✅
 // TODO: 2.完成修改用户信息 ✅
-// TODO: 3.成功修改用户信息应该做一个提示
+// TODO: 3.成功修改用户信息应该做一个提示 ✅
 let baseOrigin = '/EnglishLearningPlatform';
 
 $(document).ready(function() {
@@ -71,9 +71,55 @@ $(document).ready(function() {
             },
             data: JSON.stringify(data),
             success: function(data, textStatus) {                   // 成功修改后应该刷新页面的
-                console.log('data', data);
                 if (data.RTNDESC == '成功') {
-                    window.location.reload();
+                    $('#editMessage').show();
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1500);
+                } else {
+                    $('#message').text('抱歉，修改用户信息接口发生错误');
+                    $('.small.modal').modal('show');
+                }
+            },
+            complete: function() {
+                $(that).removeClass('loading disabled');
+            }
+        });
+    });
+
+
+    /** 监听用户点击修改密码按钮 */
+    $('#changePassword').on('click', function() {
+        let userId = $('#userId2').val();
+        let oldPassword = $('#oldPassword').val();
+        let newPassword = $('#newPassword').val();
+        
+        if (!userId || !oldPassword || !newPassword) {                 // 没有填必传字段的话，那么做个提示
+            $('#message').text('用户ID，新密码，旧密码都是必填字段');
+            $('.small.modal').modal('show');
+            return;
+        }
+
+        $(this).addClass('loading disabled');
+        let that = this;
+
+        let data = { userId, oldPassword, newPassword };
+
+        $.ajax({
+            url: `${baseOrigin}/userController/updatePassword`,
+            type: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            data: JSON.stringify(data),
+            success: function(data, textStatus) {                   // 成功修改后应该刷新页面的
+                if (data.RTNDESC == '成功') {
+                    window.scrollTo(0, 0);
+                    $('#editMessage').show();
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1500);
                 } else {
                     $('#message').text('抱歉，修改用户信息接口发生错误');
                     $('.small.modal').modal('show');

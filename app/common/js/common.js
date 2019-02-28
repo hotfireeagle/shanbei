@@ -43,9 +43,11 @@ function displayNameOrLogin() {
         $('.rl').hide();
         $('#userName').text(`您好，${userName}`);
         $('#userName').show();
+        $('#loginOut').show();
     } else {
         $('.rl').show();
         $('#userName').hide();
+        $('#loginOut').hide();
     }
 }
 
@@ -55,6 +57,29 @@ displayNameOrLogin();
 function setCookie(key, value) {
     document.cookie = `${key}=${value}`
 }
+
+/** 监听点击注销按钮 */
+$('#loginOut').on('click', function() {
+    let url = `/EnglishLearningPlatform/userController/loginOut`;
+    $.ajax({
+        url,
+        type: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'accept': 'application/json'
+        },
+        data: JSON.stringify({}),
+        success: function(data, textStatus) {
+            if (data.RTNDESC == '成功') {           // 注销登录成功的话跳转到登录页面
+                setCookie('userId', '');
+                window.location.href = '/login.html';
+            } else {
+                console.error('注销失败');
+            }
+        }
+    });
+});
+
 
 export {
     getCookie

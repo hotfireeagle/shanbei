@@ -9,6 +9,13 @@
 </head>
 <body>
     <%- include('/app/common/layout/header.html') %>
+    <!-- 修改信息成功的时候做一个提示 -->
+    <div id="editMessage" style="display: none;" class="ui success message">
+        <i class="close icon"></i>
+        <div class="header">
+            您已经成功修改用户信息
+        </div>
+    </div>
     <div class="wrapper">
         <div class="metaData">
             <h1 class="title">账号信息</h1>
@@ -36,6 +43,25 @@
                 </div>
                 <br />
                 <div id="edit" class="large primary ui button">修改信息</div>
+            </form>
+
+            <h1 class="title mt30">修改密码</h1>
+            <div class="ui divider"></div>
+
+            <form class="ui form mb20">
+                <div class="field">
+                    <label>用户ID</label>
+                    <input id="userId2" type="text" name="userId" placeholder="用户ID">
+                </div>
+                <div class="field">
+                    <label>原密码</label>
+                    <input id="oldPassword" type="password" name="oldPassword" placeholder="原密码">
+                </div>
+                <div class="field">
+                    <label>新密码</label>
+                    <input id="newPassword" type="password" name="newPassword" placeholder="新密码">
+                </div>
+                <div id="changePassword" class="large primary ui button">修改密码</div>
             </form>
         </div>
 
