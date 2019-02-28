@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"">
+    <%- include('/app/common/layout/meta.html') %>
+    <title>用户信息页面</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/semantic.css" />
+</head>
+<body>
+    <%- include('/app/common/layout/header.html') %>
+    <div class="wrapper">
+        <div class="metaData">
+            <h1 class="title">账号信息</h1>
+            <div class="ui divider"></div>
+            <form class="ui form">
+                <div class="field">
+                    <label>用户ID</label>
+                    <input id="userId" type="text" name="userId" placeholder="用户ID">
+                </div>
+                <div class="field">
+                    <label>用户电话号码</label>
+                    <input id="phoneNum" type="text" name="phoneNum" placeholder="用户电话号码">
+                </div>
+                <div class="field">
+                    <label>用户昵称</label>
+                    <input id="userN" type="text" name="userName" placeholder="用户昵称">
+                </div>
+                <div class="field">
+                    <label>用户邮箱</label>
+                    <input id="email" type="text" name="userEmail" placeholder="用户邮箱">
+                </div>
+                <div class="mb20">
+                    <label>用户是否是管理员</label>
+                    <span id="admin"></span>
+                </div>
+                <br />
+                <div id="edit" class="large primary ui button">修改信息</div>
+            </form>
+        </div>
+
+        <!-- loading区域 -->
+        <div class="ui active inverted dimmer">
+            <div class="ui loader"></div>
+        </div>
+
+        <!-- 接口错误提示区域 -->
+        <div class="ui small modal">
+            <div class="large header">提示</div>
+            <div id="message" class="content">
+                抱歉，接口返回数据错误，请稍后重试
+            </div>
+            <div class="actions">
+                <div id="closeButton" class="ui button">确定</div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('/app/common/layout/footer.html') %>
+    <script type="text/javascript" src="/assets/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/libs/semantic.js"></script>
+</body>
+</html>

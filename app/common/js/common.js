@@ -55,3 +55,7 @@ displayNameOrLogin();
 function setCookie(key, value) {
     document.cookie = `${key}=${value}`
 }
+
+export {
+    getCookie
+};
