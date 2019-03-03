@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"">
+    <%- include('/app/common/layout/meta.html') %>
+    <title>登录平台</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/semantic.css" />
+</head>
+<body>
+    <%- include('/app/common/layout/header.html') %>
+    
+    <!-- 在这里能够设置每天学习多少个单词，以及所学习单词的难度 -->
+    <div class="wrapper">
+        
+        <div class="container">
+            <div class="ui huge breadcrumb">
+                <a href="/index.html" class="section">主页</a>
+                <i class="right chevron icon divider"></i>
+                <div class="active section">今日词表学习计划定制</div>
+            </div>
+
+            <h4 class="ui horizontal divider header mb15">
+                请先选择单词书，默认单词书为高中英语词汇
+            </h4>
+
+            <div class="flex bookChoose">
+
+                <div class="ui card cardnom activecard book" data-type="1">
+                    <div class="image">
+                      <img src="/assets/imgs/cet2.jpeg">
+                    </div>
+                    <div class="content">
+                      <div class="description">
+                        高中英语词汇
+                      </div>
+                    </div>
+                </div>
+
+                <div class="ui card cardnom book" data-type="2">
+                    <div class="image">
+                      <img src="/assets/imgs/cet4.jpeg">
+                    </div>
+                    <div class="content">
+                      <div class="description">
+                        英语四级词汇
+                      </div>
+                    </div>
+                </div>
+
+                <div class="ui card cardnom book" data-type="3">
+                    <div class="image">
+                      <img src="/assets/imgs/cet8.jpeg">
+                    </div>
+                    <div class="content">
+                      <div class="description">
+                        英语八级词汇
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h4 class="ui horizontal divider header mb15">
+                请选择单词数量，默认20个单词
+            </h4>
+
+            <div class="mb30">
+                <div class="ui input flexrc">
+                    <label>输入希望背诵的单词数量：</label>
+                    <input id="planNum" type="number" placeholder="20">
+                </div>
+            </div>
+
+
+            <div class="ta">
+                <button id="start" class="ui huge primary button">
+                    开始背单词
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include('/app/common/layout/footer.html') %>
+    <script type="text/javascript" src="/assets/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/libs/semantic.js"></script>
+</body>
+</html>
