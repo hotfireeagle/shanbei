@@ -1,5 +1,7 @@
 import './index.less';
+import Xtemplate from 'xtemplate/lib/runtime';
 import 'app/common/js/common.js';
+import optionXtpl from './option.xtpl';
 
 let baseOrigin = '/EnglishLearningPlatform';
 
@@ -8,6 +10,7 @@ let globalConst = {
     xhrResponse: {},                    // 返回的响应
     wordArr: [],                        // 单词数组
     index: 0,                           // 索引
+    isTrue: false,                      // 是否正确
 };
 /********************全局状态结束********************/
 
@@ -81,7 +84,6 @@ function getRandomNum(min, max) {
     return (min + Math.round(rand * range));
 }
 
-// TODO: 1.一进入这个页面便获取单词数量
 function loadData() {
     let queryObj = parseQuery();
     let planNum = queryObj['planNum'];
@@ -99,10 +101,9 @@ function loadData() {
             'accept': 'application/json'
         },
         success: function(data, textStatus) {
-            if (data.RTNDESC == '成功') {
+            if (data.RTNDESC == '成功' && data.DATA.length > 0) {
                 globalConst.xhrResponse = data.DATA;
                 globalConst.wordArr = parseOption();   // 调用方法进行解析
-                console.log('globalConst.wordArr is', globalConst.wordArr);     // 获取分页数组
                 renderUI();
             } else {
                 $('.small.modal').modal('show');
@@ -115,16 +116,85 @@ function loadData() {
     
 }
 
-/** 渲染UI的方法 */
-function renderUI() {
+/** 渲染题目 */
+function renderQuestion() {
     let index = globalConst.index;
     let currentWord = globalConst.wordArr[index];
-    console.log('currentWord', currentWord);
 
     $('#wordEnglish').text(currentWord.wordEnglish);
+    $('.option-container').html(new Xtemplate(optionXtpl).render({
+        options: currentWord.options
+    }));
+
+    /** 选项被悬浮的时候设置背景色 */
+    $('.option-item').hover(
+        function() {$(this).addClass('hoverItem');},
+        function() {$(this).removeClass('hoverItem');}
+    );
+
+    /** 选项被点击的时候判断是否正确 */
+    $('.option-item').on('click', function() {
+        let isTrue = $(this).data('id');
+        globalConst.isTrue = isTrue;
+        $(this).siblings('.option-item').children().removeClass('rightKey rightValue wrongKey wrongValue');
+        if (isTrue) {
+            $(this).children('.key').addClass('rightKey');
+            $(this).children('.value').addClass('rightValue');
+        } else {        // 选择的那题设置为false样式，同时正确的需要标注出来
+            $(this).children('.key').addClass('wrongKey');
+            $(this).children('.value').addClass('wrongValue');
+
+            /** 标注出正确的题目 */
+            $(this).siblings(".option-item[data-id=true]").children('.key').addClass('rightKey');
+        }
+    });
+}
+
+/** 渲染UI的方法 */
+function renderUI() {
+    $('#label').text(`第${globalConst.index+1}题-总共${globalConst.wordArr.length}题`);
+    $('#progress').data('total', globalConst.wordArr.length-1);
+
+    renderQuestion();
+
+    /** 监听点击下一题按钮，同时发送ajax请求 */
+    $('#next').on('click', function() {
+        if (globalConst.index < globalConst.wordArr.length-1) {
+            let current = globalConst.wordArr[globalConst.index];
+            let istrue = globalConst.isTrue+'';
+            let wordId = current.wordId;
+            globalConst.index += 1;
+            $('#label').text(`第${globalConst.index+1}题-总共${globalConst.wordArr.length}题`);
+            $('#progress').progress({
+                value: globalConst.index,
+            });
+            renderQuestion();
+
+            sendXhr({ wordId, istrue });
+            
+        } else {                    // 提示已经到了最后一题
+            $('#label').text('大功告成，明天再来背单词吧~');
+            $('#message').text('已经到达最后一题啦~，明天再来练习吧');
+            $('.small.modal').modal('show');
+        }
+    });
 }
 
 loadData();
+
+/** 无伤回调，不给用户提示 */
+function sendXhr(data) {
+    let url = `${baseOrigin}/wordController/reciteWord`;
+    $.ajax({
+        url,
+        type: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        data: JSON.stringify(data)
+    });
+}
 
 $(document).ready(function() {
     /** 监听点击关闭提示信息的模态 */
