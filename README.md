@@ -69,9 +69,11 @@ npm install
 + 注销功能      ✅
 + 修改密码功能  ✅
 + 记住密码功能
-+ 完成今日词表功能首页功能
++ 丰富首页UI
++ 完成今日词表功能首页功能 ✅
 
 
 ## 改进点
 + 管理员用户最好有个标识
 + cookie过期时间最好长一些
++ cookie过期的时候返回的 内容是 <script type="text/javascript">alert('please login!');window.top.location.href='index.jsp';</script>
