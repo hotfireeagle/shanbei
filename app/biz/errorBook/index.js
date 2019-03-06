@@ -85,16 +85,13 @@ function getRandomNum(min, max) {
 }
 
 function loadData() {
-    let queryObj = parseQuery();
-    let planNum = queryObj['planNum'];
-    let wordType = queryObj['wordType'];
+    let wordNum = 30;               // TODO: 后续可以考虑对单词数量增加一个输入
 
     $.ajax({
-        url: `${baseOrigin}/wordController/getNewWord`,
+        url: `${baseOrigin}/wordController/getErrorWord`,
         type: 'POST',
         data: JSON.stringify({
-            planNum,
-            wordType
+            wordNum
         }),
         headers: {
             'content-type': 'application/json',
@@ -106,7 +103,7 @@ function loadData() {
                 globalConst.wordArr = parseOption();   // 调用方法进行解析
                 renderUI();
             } else if (data.RTNDESC == '成功' && data.DATA.length == 0) {
-                $('#message').text('真棒，您已经完成了所有的单词啦！');
+                $('#message').text('真棒，一道错题都没有！');
                 $('.small.modal').modal('show');
             } else if (typeof data == 'string') {
                 window.location.href = '/login.html';

@@ -19,7 +19,9 @@ $(document).ready(function() {
         },
         data: JSON.stringify({ userId }),
         success: function(data, textStatus) {
-            if (data.RTNDESC == '成功') {
+            if (typeof data == 'string') {                               // 说明登录已经失效了
+                window.location.href = '/login.html';
+            } else if (data.RTNDESC == '成功') {
                 let res = data.DATA;
                 let { phoneNum, userId, userName, userType, email } = res;
                 // 将后端返回的数据填充到表单上面
@@ -76,6 +78,8 @@ $(document).ready(function() {
                     setTimeout(function() {
                         window.location.reload();
                     }, 1500);
+                } else if (typeof data == 'string') {
+                    window.location.href = '/login.html';
                 } else {
                     $('#message').text('抱歉，修改用户信息接口发生错误');
                     $('.small.modal').modal('show');
@@ -120,6 +124,8 @@ $(document).ready(function() {
                     setTimeout(function() {
                         window.location.reload();
                     }, 1500);
+                } else if (typeof data == 'string') {
+                    window.location.href = '/login.html';
                 } else {
                     $('#message').text('抱歉，修改用户信息接口发生错误');
                     $('.small.modal').modal('show');
