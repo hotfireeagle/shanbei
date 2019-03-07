@@ -1,0 +1,6 @@
+{{#each (options)}}
+    <div class="option-item" data-id="{{isTrue}}">
+        <span class="key">{{key}}</span>
+        <span class="value">{{wordEnglish}}</span>
+    </div>
+{{/each}}

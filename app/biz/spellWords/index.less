@@ -1,0 +1,74 @@
+@import "~app/common/less/common";
+
+html,body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper {
+    flex-grow: 1;
+}
+.container {
+    width: 78%;
+    margin: 20px auto;
+    box-sizing: border-box;
+    padding: 15px 5px 0 5px;
+}
+.mb15 {
+    margin-bottom: 15px !important;
+}
+.word-container {
+    width: 100%;
+    min-height: 400px;
+    text-align: center;
+}
+.wordEnglish {
+    font-size: 42px;
+    font-weight: 600;
+}
+.option-container {
+    padding: 20px;
+}
+.option-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.key {
+    width: 40px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    border: 1px solid #2EA3FD;
+    color: #2EA3FD;
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 20px;
+}
+.value {
+    font-size: 20px;
+    font-weight: 400;
+}
+.hoverItem {
+    background: #f0f0f0;
+}
+.rightKey {
+    background: #2EA3FD;
+    color: #fff;
+}
+.rightValue {
+    color: #2EA3FD;
+}
+.wrongKey {
+    background: rgba(255,49,49,1);
+    border: 1px solid rgba(255,49,49,1);
+    color: #fff;
+}
+.wrongValue {
+    color: rgba(255,49,49,1);
+}
+.button-wraper {
+    text-align: center;
+}

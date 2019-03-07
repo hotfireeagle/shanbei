@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"">
+    <%- include('/app/common/layout/meta.html') %>
+    <title>拼写练习-背诵单词</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/semantic.css" />
+</head>
+<body>
+    <%- include('/app/common/layout/header.html') %>
+    
+    <div class="wrapper">
+
+        <!-- 导航栏区域开始 -->
+        <div class="ui huge breadcrumb bread-container">
+            <a href="/index.html" class="section">主页</a>
+            <i class="right chevron icon divider"></i>
+            <a href="/daily.html" class="section">拼写练习学习计划定制</a>
+            <i class="right chevron icon divider"></i>
+            <div class="active section">拼写练习背诵</div>
+        </div>
+
+        <div class="container">
+
+            <!-- 单词展示区域开始 -->
+            <div class="word-container">
+                <!-- 英语单词名字 -->
+                <h1 id="wordEnglish" class="wordEnglish"></h1>
+
+                <!-- 选项开始，点击选项后展示正确错误与否 -->
+                <div class="option-container"></div>
+                <!-- 选项结束 -->
+            </div>
+
+
+            <div id="progress" class="ui progress success">
+            <div class="bar">
+                <div class="progress"></div>
+            </div>
+            <div id="label" class="label">第1题</div>
+            </div>
+
+            
+            <div class="button-wraper">
+                <button id="next" class="ui huge primary button">下一题</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- loading区域 -->
+    <div class="ui active inverted dimmer">
+        <div class="ui loader"></div>
+    </div>
+
+    <!-- 接口错误提示区域 -->
+    <div class="ui small modal">
+        <div class="large header">提示</div>
+        <div id="message" class="content">
+            抱歉，接口返回数据错误，请稍后重试
+        </div>
+        <div class="actions">
+            <div id="closeButton" class="ui button">确定</div>
+        </div>
+    </div>
+
+    <%- include('/app/common/layout/footer.html') %>
+    <script type="text/javascript" src="/assets/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/libs/semantic.js"></script>
+</body>
+</html>
