@@ -106,6 +106,7 @@ function loadData() {
                 globalConst.wordArr = parseOption();   // 调用方法进行解析
                 renderUI();
             } else if (data.RTNDESC == '成功' && data.DATA.length == 0) {
+                renderEmpty();
                 $('#message').text('真棒，您已经完成了所有的单词啦！');
                 $('.small.modal').modal('show');
             } else if (typeof data == 'string') {
@@ -119,6 +120,12 @@ function loadData() {
         }
     });
     
+}
+
+/** 渲染空状态 */
+function renderEmpty() {
+    $('.container').hide();
+    $('.emptyContainer').show();
 }
 
 /** 渲染题目 */
