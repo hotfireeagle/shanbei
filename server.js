@@ -119,5 +119,5 @@ app.all('/EnglishLearningPlatform/*', function(req, res) {
 
 // http服务
 http.createServer(app).listen(80, function () {
-    console.log('gkInfomation http server listening on port 80');
+    console.log('http server listening on port 80');
 });
