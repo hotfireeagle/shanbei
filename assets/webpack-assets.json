@@ -1,17 +1,11 @@
 {
-  "index": {
-    "js": "/assets/static/index-3586d504.js",
-    "css": "/assets/static/index-f9f544e2.css"
+  "errorBook": {
+    "js": "/assets/static/errorBook-54944a5f.js",
+    "css": "/assets/static/errorBook-4453c2ed.css"
   },
-  "": {
-    "html": [
-      "/./html/enrollment.html",
-      "/./html/enrollmentList.html",
-      "/./html/examinfo.html",
-      "/./html/examinfoList.html",
-      "/./html/index.html",
-      "/./html/moreProvince.html"
-    ]
+  "index": {
+    "js": "/assets/static/index-73788f19.js",
+    "css": "/assets/static/index-96ca4382.css"
   },
   "examinfoList": {
     "js": "/assets/static/examinfoList-3166ee19.js",
@@ -32,5 +26,51 @@
   "moreProvince": {
     "js": "/assets/static/moreProvince-fb92deec.js",
     "css": "/assets/static/moreProvince-ce117daf.css"
+  },
+  "spellWords": {
+    "js": "/assets/static/spellWords-a78deaed.js",
+    "css": "/assets/static/spellWords-2b5f5e3e.css"
+  },
+  "": {
+    "html": [
+      "/./html/daily.html",
+      "/./html/dailyWords.html",
+      "/./html/errorBook.html",
+      "/./html/essay.html",
+      "/./html/index.html",
+      "/./html/login.html",
+      "/./html/register.html",
+      "/./html/spell.html",
+      "/./html/spellWords.html",
+      "/./html/user.html"
+    ]
+  },
+  "dailyWords": {
+    "js": "/assets/static/dailyWords-772e374a.js",
+    "css": "/assets/static/dailyWords-2b5f5e3e.css"
+  },
+  "user": {
+    "js": "/assets/static/user-ebf8686c.js",
+    "css": "/assets/static/user-bcb18610.css"
+  },
+  "spell": {
+    "js": "/assets/static/spell-ea14c997.js",
+    "css": "/assets/static/spell-32ebd0af.css"
+  },
+  "register": {
+    "js": "/assets/static/register-17366049.js",
+    "css": "/assets/static/register-d06b5bde.css"
+  },
+  "login": {
+    "js": "/assets/static/login-9634e81a.js",
+    "css": "/assets/static/login-6b9dcc72.css"
+  },
+  "essay": {
+    "js": "/assets/static/essay-62b0d04a.js",
+    "css": "/assets/static/essay-6936a505.css"
+  },
+  "daily": {
+    "js": "/assets/static/daily-a308b683.js",
+    "css": "/assets/static/daily-32ebd0af.css"
   }
 }
