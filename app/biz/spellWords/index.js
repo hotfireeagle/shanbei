@@ -11,6 +11,7 @@ let globalConst = {
     wordArr: [],                        // 单词数组
     index: 0,                           // 索引
     isTrue: false,                      // 是否正确
+    trueNumber: 0,                      // 正确的题目数
 };
 /********************全局状态结束********************/
 
@@ -128,9 +129,9 @@ function renderQuestion() {
     let currentWord = globalConst.wordArr[index];
 
     $('#wordEnglish').text(currentWord.wordChinese);
-    $('.option-container').html(new Xtemplate(optionXtpl).render({
-        options: currentWord.options
-    }));
+    // $('.option-container').html(new Xtemplate(optionXtpl).render({
+    //     options: currentWord.options
+    // }));
 
     /** 选项被悬浮的时候设置背景色 */
     $('.option-item').hover(
@@ -167,20 +168,26 @@ function renderUI() {
     $('#next').on('click', function() {
         if (globalConst.index < globalConst.wordArr.length-1) {
             let current = globalConst.wordArr[globalConst.index];
-            let istrue = globalConst.isTrue+'';
+            let userAnswer = $('.userAnswer').val();
+            let istrue = (current.wordEnglish == userAnswer) + '';
+            if (istrue == 'true') {
+                globalConst.trueNumber++;
+            }
+            // let istrue = globalConst.isTrue+'';
             let wordId = current.wordId;
             globalConst.index += 1;
             $('#label').text(`第${globalConst.index+1}题-总共${globalConst.wordArr.length}题`);
             $('#progress').progress({
                 value: globalConst.index,
             });
+            $('.userAnswer').val('');
             renderQuestion();
 
             sendXhr({ wordId, istrue });
             
         } else {                    // 提示已经到了最后一题
             $('#label').text('大功告成，明天再来背单词吧~');
-            $('#message').text('已经到达最后一题啦~，明天再来练习吧');
+            $('#message').text(`真棒，已经今天的练习题目啦。答对${globalConst.trueNumber}道题目，答错${globalConst.wordArr.length - globalConst.trueNumber}道题目。`);
             $('.small.modal').modal('show');
         }
     });
