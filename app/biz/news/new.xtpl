@@ -1,0 +1,7 @@
+TODO: 填充数据，比如说news的ID，填充新闻的元数据
+{{#each (news)}}
+    <div class="new-item" data-id="{{}}">
+        <span class="key">{{key}}</span>
+        <span class="value">{{wordEnglish}}</span>
+    </div>
+{{/each}}
