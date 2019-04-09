@@ -25,15 +25,34 @@
 
             <h2 class="ui medium header">添加该篇文章的五个重点词汇：</h2>
             <div class="ui input mr15">
-                <input type="text" placeholder="请填入英文单词">
+                <input class="english" type="text" placeholder="请填入英文单词">
             </div>
             <div class="ui input mr15">
-                <input type="text" placeholder="请填入中文翻译">
+                <input class="chinese" type="text" placeholder="请填入中文翻译">
             </div>
-            <button class="ui primary button">增加单词</button>
+            <button id="addWord" class="ui primary button">增加单词</button>
+
+            <!-- 添加单词进行回显开始 -->
+            <div class="wordList">
+
+            </div>
+            <!-- 添加单词回显结束 -->
+
+            <button id="update" class="ui primary button">更新</button>
 
         </div>
 
+    </div>
+
+    <!-- 接口错误提示区域 -->
+    <div class="ui small modal">
+        <div class="large header">提示</div>
+        <div id="message" class="content">
+            抱歉，接口返回数据错误，请稍后重试
+        </div>
+        <div class="actions">
+            <div id="closeButton" class="ui button">确定</div>
+        </div>
     </div>
 
     <%- include('/app/common/layout/footer.html') %>

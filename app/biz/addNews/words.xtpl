@@ -1,0 +1,6 @@
+{{#each (words)}}
+    <div class="word-item">
+        <span class="englishValue">英文：{{english}}</span>
+        <span class="chineseValue">中文：{{chinese}}</span>
+    </div>
+{{/each}}
