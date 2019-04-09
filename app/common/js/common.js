@@ -80,6 +80,23 @@ $('#loginOut').on('click', function() {
     });
 });
 
+/** 控制管理菜单显示 */
+function adminHandler() {
+    $('.adminMenu').hide();
+    $('.admin').hover(function() {
+        $('.adminMenu').show();
+    }, function() {
+        $('.adminMenu').hide();
+    });
+    $('.adminMenu').hover(function() {
+        $('.adminMenu').show();
+    }, function() {
+        $('.adminMenu').hide();
+    });
+}
+
+adminHandler();
+
 
 export {
     getCookie

@@ -1,0 +1,6 @@
+{{#each (news)}}
+    <div class="new-item seeDetail" data-id="{{newsId}}" data-content="{{newsContent}}">
+        <span>{{xindex+1}}.</span>
+        <a class="newsTitle" href="/newsDetail.html">{{newsTitle}}</a>
+    </div>
+{{/each}}

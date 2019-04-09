@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"">
+    <%- include('/app/common/layout/meta.html') %>
+    <title>增加文章</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/semantic.css" />
+</head>
+<body>
+    <%- include('/app/common/layout/header.html') %>
+    
+    <div class="wrapper">
+
+        <div class="ui huge breadcrumb bread-container contentWidth">
+            <a href="/index.html" class="section">主页</a>
+            <i class="right chevron icon divider"></i>
+            <div class="active section">增加文章</div>
+        </div>
+        
+        <div class="container contentWidth">
+
+            <h1 class="ui medium header">添加文章内容：</h1>
+            <div id="editor"></div>
+
+            <h2 class="ui medium header">添加该篇文章的五个重点词汇：</h2>
+            <div class="ui input mr15">
+                <input type="text" placeholder="请填入英文单词">
+            </div>
+            <div class="ui input mr15">
+                <input type="text" placeholder="请填入中文翻译">
+            </div>
+            <button class="ui primary button">增加单词</button>
+
+        </div>
+
+    </div>
+
+    <%- include('/app/common/layout/footer.html') %>
+    <script type="text/javascript" src="/assets/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/libs/editor.js"></script>
+    <script type="text/javascript" src="/assets/libs/semantic.js"></script>
+</body>
+</html>
