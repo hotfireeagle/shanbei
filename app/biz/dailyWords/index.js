@@ -160,6 +160,10 @@ function renderQuestion() {
             /** 标注出正确的题目 */
             $(this).siblings(".option-item[data-id=true]").children('.key').addClass('rightKey');
         }
+
+        setTimeout(function () {
+            $('#next').click();
+        }, 800);
     });
 }
 
@@ -175,7 +179,7 @@ function renderUI() {
         if (globalConst.index < globalConst.wordArr.length-1) {
             let current = globalConst.wordArr[globalConst.index];
             let istrue = globalConst.isTrue+'';
-            if (isTrue == 'true') {
+            if (istrue == 'true') {
                 globalConst.trueNumber++;
             }
             let wordId = current.wordId;
