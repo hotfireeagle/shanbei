@@ -110,7 +110,7 @@ function loadData() {
                 renderEmpty();
                 $('#message').text('真棒，您已经完成了所有的单词啦！');
                 $('.small.modal').modal('show');
-            } else if (typeof data == 'string') {
+            } else if (typeof data == 'string' || data.RTNCODE == '000008') {
                 window.location.href = '/login.html';
             } else {
                 $('.small.modal').modal('show');

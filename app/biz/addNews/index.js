@@ -113,6 +113,8 @@ function sendXHR (data) {
             if (data.RTNDESC == '成功') {
                 $('#message').text('更新成功');
                 $('.small.modal').modal('show');
+            } else if (typeof data == 'string' || data.RTNCODE == '000008') {
+                window.location.href = '/login.html';
             } else {
                 $('.small.modal').modal('show');
             }

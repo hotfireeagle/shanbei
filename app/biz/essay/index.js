@@ -26,7 +26,7 @@ function loadData() {
                 globalConst.xhrResponse = data.DATA;
                 // globalConst.wordArr = parseOption();   // 调用方法进行解析
                 renderUI();
-            } else if (data.RTNDESC != '成功') {
+            } else if (data.RTNDESC != '成功' || data.RTNCODE == '000008') {
                 window.location.href = '/login.html';
             } else if (typeof data == 'string') {
                 $('.small.modal').modal('show');

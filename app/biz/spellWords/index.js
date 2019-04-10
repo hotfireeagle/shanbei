@@ -110,7 +110,7 @@ function loadData() {
                 renderEmpty();
                 $('#message').text('真棒，您已经完成了所有的单词啦！');
                 $('.small.modal').modal('show');
-            } else if (typeof data == 'string') {
+            } else if (typeof data == 'string' || data.RTNCODE == '000008') {
                 window.location.href = '/login.html';
             } else {
                 $('.small.modal').modal('show');
@@ -166,7 +166,7 @@ function renderUI() {
 
     /** 监听点击下一题按钮，同时发送ajax请求 */
     $('#next').on('click', function() {
-        if (globalConst.index < globalConst.wordArr.length-1) {
+        if (globalConst.index < globalConst.wordArr.length - 1) {
             let current = globalConst.wordArr[globalConst.index];
             let userAnswer = $('.userAnswer').val();
             let istrue = (current.wordEnglish == userAnswer) + '';
@@ -186,6 +186,25 @@ function renderUI() {
             sendXhr({ wordId, istrue });
             
         } else {                    // 提示已经到了最后一题
+            let current = globalConst.wordArr[globalConst.index];
+            let userAnswer = $('.userAnswer').val();
+            let istrue = (current.wordEnglish == userAnswer) + '';
+            if (istrue == 'true') {
+                globalConst.trueNumber++;
+            }
+            // let istrue = globalConst.isTrue+'';
+            let wordId = current.wordId;
+            globalConst.index += 1;
+            $('#label').text(`第${globalConst.index+1}题-总共${globalConst.wordArr.length}题`);
+            $('#progress').progress({
+                value: globalConst.index,
+            });
+            $('.userAnswer').val('');
+
+            renderEmpty()
+
+            sendXhr({ wordId, istrue });
+
             $('#label').text('大功告成，明天再来背单词吧~');
             $('#message').text(`真棒，已经今天的练习题目啦。答对${globalConst.trueNumber}道题目，答错${globalConst.wordArr.length - globalConst.trueNumber}道题目。`);
             $('.small.modal').modal('show');

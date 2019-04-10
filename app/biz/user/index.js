@@ -19,7 +19,7 @@ $(document).ready(function() {
         },
         data: JSON.stringify({ userId }),
         success: function(data, textStatus) {
-            if (typeof data == 'string') {                               // 说明登录已经失效了
+            if (typeof data == 'string' || data.RTNCODE == '000008') {                               // 说明登录已经失效了
                 window.location.href = '/login.html';
             } else if (data.RTNDESC == '成功') {
                 let res = data.DATA;
@@ -78,7 +78,7 @@ $(document).ready(function() {
                     setTimeout(function() {
                         window.location.reload();
                     }, 1500);
-                } else if (typeof data == 'string') {
+                } else if (typeof data == 'string' || data.RTNCODE == '000008') {
                     window.location.href = '/login.html';
                 } else {
                     $('#message').text('抱歉，修改用户信息接口发生错误');
@@ -124,7 +124,7 @@ $(document).ready(function() {
                     setTimeout(function() {
                         window.location.reload();
                     }, 1500);
-                } else if (typeof data == 'string') {
+                } else if (typeof data == 'string' || data.RTNCODE == '000008') {
                     window.location.href = '/login.html';
                 } else {
                     $('#message').text('抱歉，修改用户信息接口发生错误');

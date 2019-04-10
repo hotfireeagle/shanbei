@@ -47,7 +47,7 @@ function loadData() {
                 renderEmpty();
                 $('#message').text('抱歉，文章列表为空，管理人员会尽快进行更新哦');
                 $('.small.modal').modal('show');
-            } else if (typeof data == 'string') {
+            } else if (typeof data == 'string' || data.RTNCODE == '000008') {
                 window.location.href = '/login.html';
             } else {
                 $('.small.modal').modal('show');

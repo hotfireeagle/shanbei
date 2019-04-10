@@ -49,6 +49,11 @@ function displayNameOrLogin() {
         $('#userName').hide();
         $('#loginOut').hide();
     }
+    if (userName == 'admin') {
+        $('.adminControl').show();
+    } else {
+        $('.adminControl').hide();
+    }
 }
 
 displayNameOrLogin();

@@ -44,7 +44,7 @@ function checkisLegal (english, chinese) {
 /** 发送xhr数据 */
 function sendXHR (data) {
     $.ajax({
-        url: `${baseOrigin}/essayController/addEssay`,
+        url: `${baseOrigin}/wordController/addWord`,
         type: "POST",
         data: JSON.stringify(data),
         headers: {
@@ -56,6 +56,8 @@ function sendXHR (data) {
                 clearInput();
                 $('#message').text('更新成功');
                 $('.small.modal').modal('show');
+            } else if (data.RTNCODE == '000008') {
+                window.location.href = '/login.html';
             } else {
                 $('.small.modal').modal('show');
             }
